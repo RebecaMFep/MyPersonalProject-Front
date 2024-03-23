@@ -5,13 +5,12 @@ import HeaderButtons from '@/components/header-footer/header/HeaderButtons.vue';
 <template>
   <header>
         
-    <div>
+    <div class="logo">
       <div>
-        <img src='/src/assets/images/logoHeader.jpg' alt="esparcer-logo">
+        <img src='/src/assets/images/logoHeader.jpg' alt="">
       </div>
 
-    <HeaderButtons/>
-    
+      <HeaderButtons/>
     </div>
 
     <nav>
@@ -19,9 +18,9 @@ import HeaderButtons from '@/components/header-footer/header/HeaderButtons.vue';
         <router-link to="/about" exact-active-class="active">Deporte</router-link>
         <router-link to="/about" exact-active-class="active">Talleres</router-link>
         <router-link to="/about" exact-active-class="active">Aire Libre</router-link>
-      </nav>
+    </nav>
 
-    </header>
+  </header>
 </template>
 
 <style lang="scss" scoped>
@@ -29,11 +28,10 @@ import HeaderButtons from '@/components/header-footer/header/HeaderButtons.vue';
 @import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Ribeye+Marrow&display=swap');
 
 header {
-  //position: fixed;
+  position: fixed;
   width: 100%;
  
-  
-  > div {
+  > .logo {
     background-color: #00A5CF;
     height: 70 rem;
 
@@ -52,7 +50,7 @@ img {
     margin: 2rem 0 2rem 
 
   }
-  a > div {
+  a > .logo {
     gap: 1rem;
     display: flex;
     align-items: center;
