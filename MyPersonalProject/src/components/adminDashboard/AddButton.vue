@@ -36,7 +36,7 @@ padding-right: 2rem;
 button.custom-button {
   font-family: "Lakki Reddy", serif;
   color: white;
-  font-size: large;
+  font-size: ;
   background-color: #00a5b8;
   border-radius: 1rem;
   padding: 1rem 2rem;

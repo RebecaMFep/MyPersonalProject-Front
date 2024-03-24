@@ -1,84 +1,65 @@
 <script setup>
-// import { ref } from 'vue';
-// import axios from 'axios';
-// import { useDate } from "vuetify";
-// import { computed } from 'vue';
-// import { useRouter } from "vue-router";
+import { ref } from 'vue';
+ import axios from 'axios';
+ import { useDate } from "vuetify";
+ import { computed } from 'vue';
+ import { useRouter } from "vue-router";
 
-// const date = useDate()
-// const router = useRouter()
+ const date = useDate()
+ const router = useRouter()
 
-// const title = ref('');
-// const city = ref('');
-// const selectedDate = ref(null);
-// const selectedTime = ref('');
-// const capacity = ref(0);
-// const description = ref('');
-// const showCalendar = ref(false);
-// const isOutstanding = ref(false);
-// const dateMenu = ref(false)
+const name = ref('');
+const location = ref('');
+const days = ref([]);
+const month = ref('');
+const selectedTime = ref('');
+const ageRange = ref('');
+const capacity = ref(0);
+const description = ref('');
 
-// const dateNow = Date.now()
-
-// const openCalendar = () => {
-//   console.log('changed');
-//   showCalendar.value = true
-// }
-
-// const updateSelectedDate = (value) => {
-//   selectedDate.value = value;
-// }
-
-
-// const resetForm = () => {
-
-//   isOutstanding.value = '';
-//   title.value = '';
-//   city.value = '';
-//   selectedDate.value = '';
-//   selectedTime.value = '';
-//   capacity.value = 0;
-//   description.value = '';
-
-// }
+const resetForm = () => {
+    name.value = '';
+    location.value = '';
+    days.value = [];
+    month.value = '';
+    selectedTime.value = '';
+    ageRange.value = '';
+    capacity.value = 0;
+    description.value = '';
+  }
  
-// const eventList = ref([])
+const activityList = ref([])
 
+const addActivity = async () => {
+    const uri = import.meta.env.VITE_APP_API_ENDPOINT;
+    const id = route.params.id;
 
-// const addEvent = async () => {
+    try {
+      const data = {
+        name: name.value,
+        location: location.value,
+        days: days.value,
+        month: month.value,
+        selectedTime: timeMenu.value,
+        ageRange: ageRange.value,
+        capacity: capacity.value,
+        description: description.value,
+      };
 
-//   try {
+      const config = {
+        withCredentials: true,
+      };
 
-//     const uri = import.meta.env.VITE_APP_API_ENDPOINT
-
-//     const data = {
-//       title: title.value,
-//       date: formattedDate.value,
-//       hour: selectedTime.value,
-//       place: city.value,
-//       description: description.value,
-//       capacity: capacity.value,
-//       outstanding: isOutstanding.value
-//     }
-
-//     const config = {
-//       withCredentials: true,
-//     }
-
-//     const response = await axios.post(uri + '/events', data, config)
-//     const status = await response.status
-    
-//     if (status == 201) {
-//       router.push("/dashboard")
-//     }
-
-//   } catch (error) {
-//     throw new Error('Error calling api: ' + error)
-//   }
-
-// }
-
-const formattedDate = computed(() => { return date.format(selectedDate.value, 'fullDateWithWeekday') })
+      const response = await axios.put(`${uri}/activities/${id}`, data, config);
+      if (response.status === 200) {
+        router.push(`/activities/${id}`);
+      } else {
+        console.error("Error al editar la actividad");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 </script>
 
 <template>
@@ -160,23 +141,23 @@ const formattedDate = computed(() => { return date.format(selectedDate.value, 'f
           </v-row>
         </v-container>
 
-        
-        <v-col cols="12">
-          <v-textarea v-model="activity.description" label="Descripción" outlined rows="5" required></v-textarea>
-        </v-col>
-
-      
-
+        <v-container>
+          <v-row></v-row>
+            <v-col cols="12">
+              <v-textarea v-model="activity.description" label="Descripción" outlined rows="5" required></v-textarea>
+            </v-col>
+          </v-row>
+       </v-container>
        
 
         <v-container class="d-flex justify-center gc-6">
 
-          <v-btn color="orange-darken-1" id="reset" @click="resetForm()">Borrar</v-btn>
-          <v-btn color="orange-darken-1" id="send" @click="addEvent()">Añadir</v-btn>
+          <v-btn id="reset" @click="resetForm()">Borrar</v-btn>
+          <v-btn id="send" @click="addActivity()">Añadir</v-btn>
 
         </v-container>
 
-      </v-card>
+      </card>
     </v-col>
   </v-row>
 </template>
