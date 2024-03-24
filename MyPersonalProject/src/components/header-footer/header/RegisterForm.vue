@@ -62,6 +62,7 @@ function redirectToLogin() {
   </div>
 </template>
 <style lang="scss" scoped>
+
 .register-box {
   width: 60%;
   margin-left: 20%; 
