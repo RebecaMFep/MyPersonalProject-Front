@@ -32,7 +32,7 @@ header {
   width: 100%;
  
   > .logo {
-    background-color: #00A5CF;
+    background-color:#00B8D4;
     height: 70 rem;
 
     padding: 0 2rem;
@@ -57,7 +57,7 @@ img {
   }
 
 nav {
-  background-color:  #00A5CF;
+  background-color:#00B8D4;
   height: 5rem;
   padding-left: 4rem;
   display: flex;

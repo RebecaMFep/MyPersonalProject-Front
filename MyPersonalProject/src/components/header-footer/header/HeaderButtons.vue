@@ -25,11 +25,11 @@ const closeForm = () => {
 <template>
   <div class="action-btns">
     <div class="actions">
-      <v-btn @click="openLoginForm()">
+      <v-btn color="cyan-accent-4" style="border: 3px solid white" @click="openLoginForm()">
         Iniciar sesión
       </v-btn>
 
-      <v-btn @click="openRegisterForm()">
+      <v-btn color="cyan-accent-4" style="border: 3px solid white" @click="openRegisterForm()">
         Registrarse
       </v-btn>
     </div>
@@ -48,9 +48,10 @@ const closeForm = () => {
 .actions {
   display: flex;
   gap: 1rem;
-}
-v-btn {
-    border: 3px solid #EFBB43;
+  margin-bottom: 3rem;
+
+
+    //border: 3px solid #EFBB43;
     height: 4rem;
     text-align: center;
     margin-top: 9rem;
@@ -63,7 +64,7 @@ v-btn {
     transition: all 0.2s ease-in-out;
 }
 v-hover {
-  background-color:  #00A5CF;;
+  background-color:  #00A5B8;
   color: white;
 }
 .action-btns{
