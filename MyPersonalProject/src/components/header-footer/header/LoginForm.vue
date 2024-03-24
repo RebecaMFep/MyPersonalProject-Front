@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from "vue"
-import { useRoute, useRouter } from "vue-router";
+import { ref } from 'vue';
+import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 
 let uri = import.meta.env.VITE_API_ENDPOINT_GENERAL
@@ -12,6 +12,19 @@ const store = useAuthStore()
 let username = ref("")
 let password = ref("")
 
+const userRules = [
+  value => {
+    if (value?.length > 3) return true;
+    return 'First name must be at least 3 characters.';
+  },
+];
+
+const passwordRules = [
+  value => {
+    if (/[^0-9]/.test(value)) return true;
+    return 'Last name can not contain digits.';
+  },
+];
 
 async function login() {
 
@@ -33,52 +46,126 @@ async function login() {
   }
 }
 
+const props = defineProps({
+  onClose: Function
+});
 
-</script>
-<template>
- 
-  <!-- <div class="login-box">
-   
-
-    <v-sheet class="mx-auto rounded-lg login-box" color="teal-lighten-5"> -->
-      <div class="form">
-        <v-form fast-fail class="mt-10 mb-13 pa-4 rounded-lg" @submit.prevent="login()">
-          <v-card-title class="title d-flex justify-center">
-            <h1 class="addTitle">Iniciar Sesión</h1>
-          </v-card-title>
-
-
-          <v-text-field class="rounded-lg" v-model="username" label="Usuario" :rules="userRules"></v-text-field>
-
-          <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules" type="password" ></v-text-field>
-
-          <v-btn type="submit" color="orange-darken-1" block class="mt-4  rounded-lg">Iniciar sesión</v-btn>
-
-        </v-form>
-      </div>
-    <!-- </v-sheet>
-  </div> -->
-
-</template>
-
-<style lang="scss" scoped>
-
-
-.login-box {
+const closeForm = () => {
+  props.onClose();
+}
   
-  width: 60%;
-  // border: 3px solid blue; 
-  border-radius: 20px;
-  margin-left: 20%; 
+</script>
+
+<template>
+  <div class="container">
+
+    <div class="login-container">
+
+      <div id="cross-icon">
+        <button @click.stop="closeForm">
+          <img src='/src/assets/images/icon-cross.svg' alt="cross-icon">
+        </button>
+      </div>
+
+      <h2>Iniciar Sesión</h2>
+
+      <form @submit.prevent="login">
+
+        <div class="input-group">
+          <label for="user">Usuario</label>
+          <input type="text" id="user" v-model="user" required placeholder="Usuario">
+        </div>
+
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" v-model="password" required placeholder="Contraseña">
+        </div>
+
+        <div class="button-container">
+          <button class="btn-login" type="submit" @click="login()">Iniciar Sesión</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+  
+ 
+  
+  <style lang="scss" scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Ribeye+Marrow&display=swap');
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .cross-icon {
+  width: 100%;
+ 
+  padding: 3rem;
+  display: flex;
+  justify-content: end;
 }
 
-.addTitle {
-  color: #00695C;
+  .login-container h2 {
+    font-family: "Lakki Reddy", serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    font-family: "Lakki Reddy", serif;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .button-container {
+  display: flex;
+  justify-content: center;
 }
 
-
-
-
-
-
-</style>
+  .btn-login {
+    width: 40%;
+    padding: 10px;
+    background-color: #00A5B8;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-family: "Lakki Reddy", serif;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    
+  }
+  
+  btn-login:hover {
+    background-color: #0056b3;
+  }
+  </style>
+  
