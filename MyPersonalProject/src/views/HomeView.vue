@@ -1,13 +1,15 @@
 <script setup>
 
-import NewForm from '@/components/header-footer/header/NewForm.vue'
+//import AddButton from '@/components/adminDashboard/AddButton.vue'
+import AddForm from '@/components/adminDashboard/AddForm.vue';
 </script>
 
 <template>
   <main>
     <h1>This is home page</h1>
     
-  <NewForm />
+  <!-- <AddButton /> -->
+  <AddForm />
   </main>
 </template>
 
