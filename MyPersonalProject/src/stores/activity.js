@@ -47,25 +47,25 @@ export const useActivityStore = defineStore('activity', () => {
     }
   }
 
-  // const editActivity = async (id) => {
-  //   const uri = import.meta.env.VITE_APP_API_ENDPOINT
-  //   const options = {
-  //     baseURL: uri,
-  //     withCredentials: true,
-  //   }
+   const editActivity = async (id) => {
+     const uri = import.meta.env.VITE_APP_API_ENDPOINT
+     const options = {
+       baseURL: uri,
+       withCredentials: true,
+     }
 
     
-  //   try {
-  //     const response = await axios.edit(`/activities/${id}`, options)
-  //     const status = response.status
+     try {
+       const response = await axios.edit(`/activities/${id}`, options)
+       const status = response.status
 
-  //     if (status == 202) {
-  //       await editActivity()
-  //       return true
-  //     }
-  //   } catch (error) {
-  //     console.error('Error Editing Activity:', error);
-  //   }}
+       if (status == 202) {
+         await editActivity()
+         return true
+       }
+     } catch (error) {
+       console.error('Error Editing Activity:', error);
+     }}
 
-  return { activities, getActivities, deleteActivity }
+  return { activities, getActivities, deleteActivity, editActivity }
 })

@@ -99,11 +99,11 @@ onMounted(async () => {
       <v-container>
           <v-row>
             <v-col cols="8">
-              <v-text-field  label="Actividad" v-model="name" outlined required>{{ content.name }}</v-text-field>
+              <v-text-field  label="Actividad" v-model="name" outlined required>{{ activity.name }}</v-text-field>
             </v-col>
 
             <v-col cols="4">
-              <v-text-field label="Lugar" v-model="location" outlined required>{{ content.location }}</v-text-field>
+              <v-text-field label="Lugar" v-model="location" outlined required>{{ activity.location }}</v-text-field>
             </v-col>
           </v-row>
         </v-container>
@@ -118,11 +118,11 @@ onMounted(async () => {
                 multiple
                 outlined
                 chips
-              >{{ content.days }}</v-select>
+              >{{ activity.days }}</v-select>
             </v-col>
 
             <v-col cols="3">
-              <v-radio-group v-model="month" row>{{ content.month }}
+              <v-radio-group v-model="month" row>{{ activity.month }}
                 <v-radio label="Julio" value="julio"></v-radio>
                 <v-radio label="Agosto" value="agosto"></v-radio>
               </v-radio-group>
@@ -137,7 +137,7 @@ onMounted(async () => {
                 offset-y>
 
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field v-model="selectedTime" label="Hora" outlined readonly v-bind="attrs" v-on="on">{{ content.selectedTime }}</v-text-field>
+                  <v-text-field v-model="selectedTime" label="Hora" outlined readonly v-bind="attrs" v-on="on">{{ activity.selectedTime }}</v-text-field>
                 </template>
                 <v-time-picker v-model="time" @input="timeMenu = false"></v-time-picker>
               </v-menu>
@@ -154,11 +154,11 @@ onMounted(async () => {
                 label="Rango de edad"
                 outlined
                 required
-              >{{ content.ageRange }}</v-select>
+              >{{ activity.ageRange }}</v-select>
             </v-col>
 
             <v-col cols="4">
-              <v-text-field v-model.number="capacity" label="Aforo" outlined type="number" required>{{ content.capacity }}</v-text-field>
+              <v-text-field v-model.number="capacity" label="Aforo" outlined type="number" required>{{ activity.capacity }}</v-text-field>
             </v-col>
           </v-row>
         </v-container>
@@ -166,7 +166,7 @@ onMounted(async () => {
         <v-container>
           <v-row> 
           <v-col cols="12">
-              <v-textarea v-model="description" label="Descripción" outlined rows="5" required>{{ content.description }}</v-textarea>
+              <v-textarea v-model="description" label="Descripción" outlined rows="5" required>{{ activity.description }}</v-textarea>
             </v-col>
           </v-row> 
         </v-container>
