@@ -153,6 +153,17 @@
       width: 100%;
     }
   }
-
+  // @media screen and (max-width: 768px) {
+  //   .container {
+  //     display: flex;
+  //     justify-content: center;
+  //   }
+  //   .footer-content {
+  //     width: 100%;
+  //   }
+  //   .bottom-bar {
+  //     display: none;
+  //   }
+  // }
 
 </style>

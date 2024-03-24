@@ -15,9 +15,10 @@ import HeaderButtons from '@/components/header-footer/header/HeaderButtons.vue';
 
     <nav>
         <router-link to="/" exact-active-class="active">Inicio</router-link>
-        <router-link to="/about" exact-active-class="active">Deporte</router-link>
-        <router-link to="/about" exact-active-class="active">Talleres</router-link>
-        <router-link to="/about" exact-active-class="active">Aire Libre</router-link>
+        <router-link to="/about" exact-active-class="active">¿Quiénes somos?</router-link>
+        <router-link to="/about" exact-active-class="active">Actividades</router-link>
+        <router-link to="/about" exact-active-class="active">Servicios</router-link>
+        <router-link to="/about" exact-active-class="active">Contacto</router-link>
     </nav>
 
   </header>
