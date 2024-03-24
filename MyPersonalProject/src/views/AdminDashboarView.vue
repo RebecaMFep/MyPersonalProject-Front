@@ -3,6 +3,7 @@
 import AdminDashboard from '@/components/AdminDashboard.vue';
 import { useActivityStore } from "@/stores/activity";
 import { useRouter } from 'vue-router'
+import AddButton from '../components/adminDashboard/AddButton.vue';
 
 const router = useRouter()
 const store = useActivityStore()
@@ -27,6 +28,7 @@ const editActivity = () => {
 
 <template>
     <AdminDashboard />
+    <AddButton />
     <main>
     <v-container class="background d-flex justify-center rounded-lg">
         <v-table fixed-header="" height="500px" class="adminList">
@@ -54,11 +56,11 @@ const editActivity = () => {
                     <td>{{ activity.selectedTime }}</td>
                     <td>{{ activity.ageRange }}</td>
                     <td>{{ activity.capacity }}</td>
-                    <td>{{ event.description }}</td>
+                    <td>{{ activity.description }}</td>
                     <td class="options-cell">
                         <v-row no-gutters class="btn-icono">
                             <v-col cols="6">
-                                <i class="fa fa-edit" @click="editActivity(activity)"></i>
+                                <i class="fa fa-edit" @click="editActivity(activity.id)"></i>
                             </v-col>
                             <v-col cols="6">
                                 <i class="fa fa-trash" @click="deleteActivity(activity.id)"></i>
@@ -81,9 +83,6 @@ main {
 .background {
     background-color:#008299;
 }
-
-
-
 
 .text-left {
     padding: 10px;
@@ -111,7 +110,6 @@ tr {
         margin-left: 5vh;
     }
 }
-
 
 @media (min-width: 1200px) {
     .v-container {
