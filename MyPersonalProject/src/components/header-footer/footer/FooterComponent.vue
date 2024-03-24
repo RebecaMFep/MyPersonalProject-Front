@@ -9,10 +9,10 @@ const icons = [
 </script>
 
 <template>
-  <v-footer class="footer">
+  <v-footer class="footer" color="teal-lighten-3">
     <v-container class="d-flex justify-center">
-      <v-card class="flex" flat tile>
-        <v-card-title>
+      <v-card color="teal-lighten-3" class="flex" flat tile>
+        <v-card-title class="teal">
 
           <v-spacer></v-spacer>
 
@@ -22,7 +22,7 @@ const icons = [
         </v-card-title>
 
         <v-card-actions class="d-flex justify-center">
-          <strong>&copy;2024 — "Esparcer en branu". Todos los derechos reservados.</strong>
+          <strong>&copy;2024 — Team Event</strong>
         </v-card-actions>
       </v-card>
     </v-container>
@@ -35,6 +35,5 @@ const icons = [
   bottom: 0;
   width: 100%;
   height: 125px;
-  background-color: #00A5CF;
 }
 </style>
