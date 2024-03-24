@@ -67,5 +67,5 @@ export const useActivityStore = defineStore('activity', () => {
   //     console.error('Error Editing Activity:', error);
   //   }}
 
-  return { activities, getActivities, deleteActivity}
+  return { activities, getActivities, deleteActivity }
 })
