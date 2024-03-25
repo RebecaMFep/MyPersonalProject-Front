@@ -66,7 +66,7 @@ const addActivity = async () => {
   <v-row justify="center" class="Back">
     <v-col cols="12" sm="10" md="8" lg="6">
     
-   <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 rounded-lg">
+    <v-card ref="form" class="mt-10 mb-13 pt-10 pb-10 rounded-lg">
 
       <v-card-title class="title d-flex justify-center">
         <h1 class="addTitle">Añadir Nueva Actividad</h1>
@@ -142,7 +142,7 @@ const addActivity = async () => {
         </v-container>
 
         <v-container>
-          <v-row></v-row>
+          <v-row>
             <v-col cols="12">
               <v-textarea v-model="activity.description" label="Descripción" outlined rows="5" required></v-textarea>
             </v-col>
@@ -152,26 +152,26 @@ const addActivity = async () => {
 
         <v-container class="d-flex justify-center gc-6">
 
-          <v-btn id="reset" @click="resetForm()">Borrar</v-btn>
-          <v-btn id="send" @click="addActivity()">Añadir</v-btn>
+          <v-btn class="btn-actions" id="reset" @click="resetForm()">Borrar</v-btn>
+          <v-btn class="btn-actions" id="send" @click="addActivity()">Añadir</v-btn>
 
         </v-container>
 
-      </card>
-    </v-col>
+    </v-card>
+  </v-col>
   </v-row>
 </template>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Ribeye+Marrow&display=swap');
 
-.Back {
-  background-image: url(../../public/image/fondo4.jpg);
-    background-size: cover;
-    background-position:left;
-    opacity: 0.9;
-}
-
-.addTitle {
-  color:#00695C;
+.btn-actions {
+  font-family: "Lakki Reddy", serif;
+  color: white;
+  font-size: large;
+  background-color: #00a5b8;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
 }
 </style>
