@@ -40,8 +40,8 @@ const addActivity = async () => {
         location: location.value,
         days: days.value,
         month: month.value,
-        selectedTime: timeMenu.value,
-        ageRange: ageRange.value,
+        time: timeMenu.value,
+        range: ageRange.value,
         capacity: capacity.value,
         description: description.value,
       };
@@ -77,11 +77,11 @@ const addActivity = async () => {
       <v-container>
           <v-row>
             <v-col cols="8">
-              <v-text-field  label="Actividad" v-model="activity.name" outlined required></v-text-field>
+              <v-text-field  label="Actividad" v-model="name" outlined required></v-text-field>
             </v-col>
 
             <v-col cols="4">
-              <v-text-field label="Lugar" v-model="activity.location" outlined required></v-text-field>
+              <v-text-field label="Lugar" v-model="location" outlined required></v-text-field>
             </v-col>
           </v-row>
         </v-container>
@@ -90,7 +90,7 @@ const addActivity = async () => {
           <v-row>
             <v-col cols="6">
               <v-select
-                v-model="activity.days"
+                v-model="days"
                 :items="daysOfWeek"
                 label="Día/s"
                 multiple
@@ -100,7 +100,7 @@ const addActivity = async () => {
             </v-col>
 
             <v-col cols="3">
-              <v-radio-group v-model="activity.month" row>
+              <v-radio-group v-model="month" row>
                 <v-radio label="Julio" value="julio"></v-radio>
                 <v-radio label="Agosto" value="agosto"></v-radio>
               </v-radio-group>
@@ -115,9 +115,9 @@ const addActivity = async () => {
                 offset-y>
 
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field v-model="activity.time" label="Hora" outlined readonly v-bind="attrs" v-on="on"></v-text-field>
+                  <v-text-field v-model="time" label="Hora" outlined readonly v-bind="attrs" v-on="on"></v-text-field>
                 </template>
-                <v-time-picker v-model="activity.time" @input="timeMenu = false"></v-time-picker>
+                <v-time-picker v-model="time" @input="timeMenu = false"></v-time-picker>
               </v-menu>
             </v-col>
           </v-row>
@@ -127,7 +127,7 @@ const addActivity = async () => {
           <v-row>
             <v-col cols="8">
               <v-select
-                v-model="activity.ageRange"
+                v-model="range"
                 :items="ageRanges"
                 label="Rango de edad"
                 outlined
@@ -136,7 +136,7 @@ const addActivity = async () => {
             </v-col>
 
             <v-col cols="4">
-              <v-text-field v-model.number="activity.capacity" label="Aforo" outlined type="number" required></v-text-field>
+              <v-text-field v-model.number="capacity" label="Aforo" outlined type="number" required></v-text-field>
             </v-col>
           </v-row>
         </v-container>
@@ -144,7 +144,7 @@ const addActivity = async () => {
         <v-container>
           <v-row>
             <v-col cols="12">
-              <v-textarea v-model="activity.description" label="Descripción" outlined rows="5" required></v-textarea>
+              <v-textarea v-model="description" label="Descripción" outlined rows="5" required></v-textarea>
             </v-col>
           </v-row>
        </v-container>

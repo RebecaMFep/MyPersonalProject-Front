@@ -53,8 +53,8 @@ const editActivity = () => {
                     <td>{{ activity.location }}</td>
                     <td>{{ activity.days }}</td>
                     <td>{{ activity.month }}</td>
-                    <td>{{ activity.selectedTime }}</td>
-                    <td>{{ activity.ageRange }}</td>
+                    <td>{{ activity.time }}</td>
+                    <td>{{ activity.range }}</td>
                     <td>{{ activity.capacity }}</td>
                     <td>{{ activity.description }}</td>
                     <td class="options-cell">

@@ -35,12 +35,12 @@ const goToContact = () => {
 <div class="when">
     <v-card-title>{{ activity.days }}</v-card-title>
     <v-card-title>{{ activity.month }}</v-card-title>
-    <v-card-title>{{ activity.selectedTime }}</v-card-title>
+    <v-card-title>{{ activity.time }}</v-card-title>
 </div>
 
 
 <div class="rang-cap">
-    <v-card-title>{{ activity.ageRange }}</v-card-title>
+    <v-card-title>{{ activity.range }}</v-card-title>
     <v-card-title>{{ activity.capacity }}</v-card-title>
 </div>
 

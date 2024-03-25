@@ -16,7 +16,7 @@ const daysOfWeek = [
   'Domingo'
 ];
 
-const ageRanges = ref([
+const ranges = ref([
   '3-6 años',
   '6-12 años'
 ]);
@@ -25,8 +25,8 @@ const name = ref('');
 const location = ref('');
 const days = ref([]);
 const month = ref('');
-const selectedTime = ref('');
-const ageRange = ref('');
+const time = ref('');
+const range = ref('');
 const capacity = ref(0);
 const description = ref('');
 
@@ -46,8 +46,8 @@ onMounted(async () => {
     location.value = '';
     days.value = [];
     month.value = '';
-    selectedTime.value = '';
-    ageRange.value = '';
+    time.value = '';
+    range.value = '';
     capacity.value = 0;
     description.value = '';
   }
@@ -62,8 +62,8 @@ onMounted(async () => {
         location: location.value,
         days: days.value,
         month: month.value,
-        selectedTime: timeMenu.value,
-        ageRange: ageRange.value,
+        time: time.value,
+        range: range.value,
         capacity: capacity.value,
         description: description.value,
       };
@@ -130,14 +130,14 @@ onMounted(async () => {
 
             <v-col cols="3">
               <v-menu
-                v-model="timeMenu"
+                v-model="time"
                 :close-on-content-click="false"
                 :nudge-right="40"
                 transition="scale-transition"
                 offset-y>
 
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field v-model="selectedTime" label="Hora" outlined readonly v-bind="attrs" v-on="on">{{ activity.selectedTime }}</v-text-field>
+                  <v-text-field v-model="time" label="Hora" outlined readonly v-bind="attrs" v-on="on">{{ activity.time }}</v-text-field>
                 </template>
                 <v-time-picker v-model="time" @input="timeMenu = false"></v-time-picker>
               </v-menu>
@@ -149,12 +149,12 @@ onMounted(async () => {
           <v-row>
             <v-col cols="8">
               <v-select
-                v-model="ageRange"
+                v-model="range"
                 :items="ageRanges"
                 label="Rango de edad"
                 outlined
                 required
-              >{{ activity.ageRange }}</v-select>
+              >{{ activity.range }}</v-select>
             </v-col>
 
             <v-col cols="4">
