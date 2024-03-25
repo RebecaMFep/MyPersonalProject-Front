@@ -8,19 +8,19 @@
     <h1 class="text-center">¡Explora nuestras categorías de actividades!</h1>
 
     <div class="container_images">
-      <router-link to="/deportes-y-aventuras">
+      <router-link to="/categorie-adventure">
         <div class="image">
           <img src="../assets/imgages/surfImage-jpg" alt="">
           <h2 class="category_title">Deportes y Aventuras</h2>
         </div>
       </router-link>
-      <router-link to="/arte-y-creatividad">
+      <router-link to="/categorie-art">
         <div class="image">
           <img src="../assets/imgages/artImage.jpg" alt="">
           <h2 class="category_title">Arte y Creatividad</h2>
         </div>
       </router-link>
-      <router-link to="/juego-saludable">
+      <router-link to="/categorie-games">
         <div class="image">
           <img src="../assets/imgages/freeImage.jpg" alt="">
           <h2 class="category_title">Juego Saludable</h2>
